@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فروشگاه اینترنت جاستین</title>
+    <title>اینترنت ارزان جکسون</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Vazirmatn Font -->
@@ -19,197 +19,347 @@
 </head>
 <body class="text-white min-h-screen flex justify-center items-start bg-[#0d131d]">
 
-    <!-- Main Container (Mobile View) -->
+    <!-- Main Container -->
     <div class="w-full max-w-md min-h-screen flex flex-col justify-start p-4 relative">
 
         <!-- Header -->
-        <header class="flex items-center justify-center py-2 border-b border-gray-800/50 mb-3">
-            <div class="flex flex-col items-center">
-                <span class="font-bold text-base text-gray-100">فروشگاه اینترنت جاستین</span>
-                <span class="text-xs text-gray-400">ربات</span>
+        <header class="flex items-center justify-between py-2 border-b border-gray-800/50 mb-4">
+            <div class="flex flex-col">
+                <span class="font-bold text-base text-gray-100">اینترنت ارزان جکسون</span>
+                <span class="text-[10px] text-gray-400">سرویس سریع خرید بسته</span>
             </div>
+            <!-- Top Left Register Button -->
+            <button id="topLeftRegisterBtn" onclick="switchAuthMode('register')" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs px-3 py-1.5 rounded-lg transition-all hidden">
+                ثبت نام
+            </button>
         </header>
 
-        <!-- Welcome Banner -->
-        <section class="bg-[#151d2a] rounded-2xl p-4 text-center mb-3 border border-gray-800/40 shadow-sm">
-            <div class="flex justify-center items-center gap-2 mb-2">
-                <span class="text-sm font-bold text-gray-100">به فروشگاه اینترنت جاستین خوش آمدید!</span>
-                <span class="text-lg">👋</span>
-            </div>
-            <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                در اینجا می‌توانید جدیدترین و ارزان‌ترین بسته‌های اینترنت همراه را به صورت خودکار خریداری کنید.
-            </p>
-            <!-- Features Badges -->
-            <div class="flex items-center justify-between text-[11px] text-gray-300 pt-2 border-t border-gray-800/60 px-1">
-                <div class="flex items-center gap-1">
-                    <i data-lucide="zap" class="w-3.5 h-3.5 text-emerald-400"></i>
-                    <span>تحویل آنی</span>
-                </div>
-                <div class="flex items-center gap-1">
-                    <i data-lucide="check-square" class="w-3.5 h-3.5 text-emerald-400"></i>
-                    <span>قیمت مناسب</span>
-                </div>
-                <div class="flex items-center gap-1">
-                    <i data-lucide="headphones" class="w-3.5 h-3.5 text-emerald-400"></i>
-                    <span>پشتیبانی ۲۴/۷</span>
-                </div>
-            </div>
-        </section>
+        <!-- ================= SECTION 1: AUTHENTICATION (LOGIN / REGISTER) ================= -->
+        <div id="authSection" class="w-full">
+            <section class="bg-[#151d2a] rounded-2xl p-5 border border-gray-800/40 shadow-sm text-center">
+                <h1 class="text-xl font-bold text-emerald-400 mb-1">خوش امدی</h1>
+                <h2 class="text-sm font-semibold text-gray-200 mb-2">اینترنت زن جکسون</h2>
+                <p class="text-xs text-gray-400 mb-6">برای خرید بسته اینترنت وارد حساب شو</p>
 
-        <!-- Section Title -->
-        <div class="flex items-center justify-center gap-2 text-gray-200 font-semibold mb-3 text-sm">
-            <i data-lucide="globe" class="w-4 h-4 text-gray-400"></i>
-            <span>بسته‌های اینترنت</span>
+                <!-- Auth Form -->
+                <form id="authForm" onsubmit="handleAuth(event)" class="space-y-4">
+                    <div class="text-right">
+                        <label class="text-xs text-gray-300 mb-1 block">نام کاربری</label>
+                        <input type="text" id="usernameInput" required class="w-full bg-[#0d131d] border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500" placeholder="نام کاربری را وارد کنید">
+                    </div>
+                    <div class="text-right">
+                        <label class="text-xs text-gray-300 mb-1 block">رمز عبور</label>
+                        <input type="password" id="passwordInput" required class="w-full bg-[#0d131d] border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500" placeholder="رمز عبور را وارد کنید">
+                    </div>
+
+                    <div id="authError" class="text-xs text-red-400 hidden text-center"></div>
+
+                    <button type="submit" id="authSubmitBtn" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-2.5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-emerald-500/10">
+                        ورود به حساب
+                    </button>
+                </form>
+
+                <!-- Footer Switch Link -->
+                <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-gray-400">
+                    <span id="authToggleText">حساب کاربری نداری؟</span>
+                    <button id="authToggleBtn" onclick="toggleAuthMode()" class="text-emerald-400 font-bold mr-1 hover:underline">ثبت نام کن</button>
+                </div>
+            </section>
         </div>
 
-        <!-- Product List -->
-        <div class="space-y-2.5 mb-6">
-            
-            <!-- Card 1 -->
-            <div class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-between">
-                <!-- Buy Button & Price -->
+
+        <!-- ================= SECTION 2: OPERATOR SELECTION ================= -->
+        <div id="operatorSection" class="w-full hidden space-y-4">
+            <section class="bg-[#151d2a] rounded-2xl p-5 border border-gray-800/40 text-center">
+                <h2 class="text-base font-bold text-gray-100 mb-1">سرویس خرید بسته اینترنت</h2>
+                <p class="text-xs text-emerald-400 mb-4">اینترنت رو ساده و سریع بخر</p>
+                <p class="text-xs text-gray-300 leading-relaxed bg-[#0d131d]/50 p-3 rounded-xl border border-gray-800/50">
+                    از بین ایرانسل و همراه اول، بسته مورد نظرت رو انتخاب کن و سفارش رو ثبت کن.
+                </p>
+            </section>
+
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="selectOperator('irancell')" class="bg-[#151d2a] hover:bg-[#1a2434] border border-yellow-500/30 hover:border-yellow-500 p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all group">
+                    <div class="w-12 h-12 bg-yellow-500/10 rounded-full flex items-center justify-center text-yellow-500 group-hover:scale-110 transition-transform">
+                        <i data-lucide="wifi" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-sm text-yellow-500">ایرانسل</span>
+                </button>
+
+                <button onclick="selectOperator('mci')" class="bg-[#151d2a] hover:bg-[#1a2434] border border-cyan-500/30 hover:border-cyan-500 p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all group">
+                    <div class="w-12 h-12 bg-cyan-500/10 rounded-full flex items-center justify-center text-cyan-500 group-hover:scale-110 transition-transform">
+                        <i data-lucide="smartphone" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-sm text-cyan-400">همراه اول</span>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- ================= SECTION 3: PRODUCTS MAIN PAGE ================= -->
+        <div id="mainPageSection" class="w-full hidden">
+            <!-- Operator Header Bar -->
+            <div class="flex items-center justify-between bg-[#151d2a] p-3 rounded-xl border border-gray-800/60 mb-4">
                 <div class="flex items-center gap-2">
-                    <button class="bg-[#10b981] hover:bg-[#059669] text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                        <span>خرید</span>
-                    </button>
-                    <div class="text-left">
-                        <div class="text-xs font-bold text-emerald-400">۳۰,۰۰۰</div>
-                        <div class="text-[10px] text-gray-400">تومان</div>
-                    </div>
+                    <i data-lucide="globe" class="w-4 h-4 text-emerald-400"></i>
+                    <span id="selectedOperatorTitle" class="text-xs font-bold text-gray-200">بسته‌های اینترنت</span>
                 </div>
-                <!-- Package Details -->
-                <div class="flex items-center gap-2.5">
-                    <div class="text-right">
-                        <div class="text-sm font-bold text-gray-100">۱۰ گیگابایت</div>
-                        <div class="text-[10px] text-gray-400 flex items-center gap-1 justify-end mt-0.5">
-                            <span>۳۰ روزه</span>
-                            <i data-lucide="calendar" class="w-3 h-3"></i>
-                        </div>
-                    </div>
-                    <!-- Icon Badge -->
-                    <div class="w-11 h-11 bg-[#064e3b]/40 border border-[#059669]/30 rounded-lg flex flex-col items-center justify-center text-[#10b981]">
-                        <span class="text-xs font-bold leading-none">1GB</span>
-                        <i data-lucide="wifi" class="w-3.5 h-3.5 mt-1"></i>
-                    </div>
-                </div>
+                <button onclick="showOperatorSection()" class="text-[11px] text-gray-400 hover:text-white flex items-center gap-1 bg-[#0d131d] px-2.5 py-1 rounded-lg border border-gray-800">
+                    <span>تغییر اپراتور</span>
+                    <i data-lucide="refresh-cw" class="w-3 h-3"></i>
+                </button>
             </div>
 
-            <!-- Card 2 -->
-            <div class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <button class="bg-[#10b981] hover:bg-[#059669] text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                        <span>خرید</span>
-                    </button>
-                    <div class="text-left">
-                        <div class="text-xs font-bold text-emerald-400">۵۰,۰۰۰</div>
-                        <div class="text-[10px] text-gray-400">تومان</div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-2.5">
-                    <div class="text-right">
-                        <div class="text-sm font-bold text-gray-100">۲۰ گیگابایت</div>
-                        <div class="text-[10px] text-gray-400 flex items-center gap-1 justify-end mt-0.5">
-                            <span>۶۰ روزه</span>
-                            <i data-lucide="calendar" class="w-3 h-3"></i>
-                        </div>
-                    </div>
-                    <div class="w-11 h-11 bg-[#064e3b]/40 border border-[#059669]/30 rounded-lg flex flex-col items-center justify-center text-[#10b981]">
-                        <span class="text-xs font-bold leading-none">2GB</span>
-                        <i data-lucide="wifi" class="w-3.5 h-3.5 mt-1"></i>
-                    </div>
-                </div>
+            <!-- Loading Spinner -->
+            <div id="packagesLoading" class="text-center py-8 text-gray-400 text-xs hidden">
+                در حال دریافت بسته‌ها...
             </div>
 
-            <!-- Card 3 -->
-            <div class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <button class="bg-[#10b981] hover:bg-[#059669] text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                        <span>خرید</span>
-                    </button>
-                    <div class="text-left">
-                        <div class="text-xs font-bold text-emerald-400">۷۵,۰۰۰</div>
-                        <div class="text-[10px] text-gray-400">تومان</div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-2.5">
-                    <div class="text-right">
-                        <div class="text-sm font-bold text-gray-100">۳۰ گیگابایت</div>
-                        <div class="text-[10px] text-gray-400 flex items-center gap-1 justify-end mt-0.5">
-                            <span>۹۰ روزه</span>
-                            <i data-lucide="calendar" class="w-3 h-3"></i>
-                        </div>
-                    </div>
-                    <div class="w-11 h-11 bg-[#064e3b]/40 border border-[#059669]/30 rounded-lg flex flex-col items-center justify-center text-[#10b981]">
-                        <span class="text-xs font-bold leading-none">3GB</span>
-                        <i data-lucide="wifi" class="w-3.5 h-3.5 mt-1"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <button class="bg-[#10b981] hover:bg-[#059669] text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                        <span>خرید</span>
-                    </button>
-                    <div class="text-left">
-                        <div class="text-xs font-bold text-emerald-400">۱۱۰,۰۰۰</div>
-                        <div class="text-[10px] text-gray-400">تومان</div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-2.5">
-                    <div class="text-right">
-                        <div class="text-sm font-bold text-gray-100">۵۰ گیگابایت</div>
-                        <div class="text-[10px] text-gray-400 flex items-center gap-1 justify-end mt-0.5">
-                            <span>۱۲۰ روزه</span>
-                            <i data-lucide="calendar" class="w-3 h-3"></i>
-                        </div>
-                    </div>
-                    <div class="w-11 h-11 bg-[#064e3b]/40 border border-[#059669]/30 rounded-lg flex flex-col items-center justify-center text-[#10b981]">
-                        <span class="text-xs font-bold leading-none">5GB</span>
-                        <i data-lucide="wifi" class="w-3.5 h-3.5 mt-1"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <button class="bg-[#10b981] hover:bg-[#059669] text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                        <span>خرید</span>
-                    </button>
-                    <div class="text-left">
-                        <div class="text-xs font-bold text-emerald-400">۱۵۰,۰۰۰</div>
-                        <div class="text-[10px] text-gray-400">تومان</div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-2.5">
-                    <div class="text-right">
-                        <div class="text-sm font-bold text-gray-100">۱۰۰ گیگابایت</div>
-                        <div class="text-[10px] text-gray-400 flex items-center gap-1 justify-end mt-0.5">
-                            <span>۱۸۰ روزه</span>
-                            <i data-lucide="calendar" class="w-3 h-3"></i>
-                        </div>
-                    </div>
-                    <div class="w-11 h-11 bg-[#064e3b]/40 border border-[#059669]/30 rounded-lg flex flex-col items-center justify-center text-[#10b981]">
-                        <span class="text-xs font-bold leading-none">10GB</span>
-                        <i data-lucide="wifi" class="w-3.5 h-3.5 mt-1"></i>
-                    </div>
-                </div>
-            </div>
-
+            <!-- Product List Container -->
+            <div id="productList" class="space-y-2.5 mb-6"></div>
         </div>
 
     </div>
 
-    <!-- Initialize Lucide Icons -->
+    <!-- ================= PURCHASE MODAL ================= -->
+    <div id="purchaseModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center p-4 z-50 hidden">
+        <div class="bg-[#151d2a] border border-gray-800 rounded-2xl p-5 w-full max-w-sm space-y-4 text-right relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute left-4 top-4 text-gray-400 hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <h3 class="text-sm font-bold text-emerald-400 border-b border-gray-800 pb-2">جزئیات سفارش و پرداخت</h3>
+
+            <!-- Package Summary -->
+            <div class="bg-[#0d131d] p-3 rounded-xl border border-gray-800/60 space-y-1.5 text-xs">
+                <div class="flex justify-between text-gray-300">
+                    <span>حجم بسته:</span>
+                    <span id="modalVolume" class="font-bold text-white"></span>
+                </div>
+                <div class="flex justify-between text-gray-300">
+                    <span>مدت اعتبار:</span>
+                    <span id="modalDuration" class="font-bold text-white"></span>
+                </div>
+                <div class="flex justify-between text-gray-300">
+                    <span>مبلغ قابل پرداخت:</span>
+                    <span id="modalPrice" class="font-bold text-emerald-400"></span>
+                </div>
+            </div>
+
+            <!-- Card Number Copy Section -->
+            <div class="space-y-1">
+                <label class="text-[11px] text-gray-400 block">شماره کارت جهت واریز (برای کپی کلیک کنید):</label>
+                <div onclick="copyCardNumber()" class="bg-[#0d131d] border border-emerald-500/30 hover:border-emerald-500 p-3 rounded-xl flex items-center justify-between cursor-pointer transition-all group">
+                    <span id="modalCardNumber" class="font-mono text-sm tracking-wider text-emerald-300"></span>
+                    <i data-lucide="copy" class="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <span id="copyAlert" class="text-[10px] text-emerald-400 hidden block text-center mt-1">شماره کارت کپی شد!</span>
+            </div>
+
+            <!-- Seller ID Notice -->
+            <div class="text-xs text-gray-300 bg-amber-500/10 border border-amber-500/20 p-2.5 rounded-xl">
+                <span>آیدی پشتیبان / فروشنده: </span>
+                <span id="modalSellerId" class="font-bold text-amber-400"></span>
+            </div>
+
+            <!-- Submit Payment Button -->
+            <button onclick="confirmPayment()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-2.5 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-1.5">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                <span>پرداخت کردم</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Script Logic -->
     <script>
+        let currentAuthMode = 'login'; // 'login' or 'register'
+        let selectedOperator = '';
+        let currentSelectedPackage = null;
+
+        // Toggle Auth View Mode
+        function toggleAuthMode() {
+            switchAuthMode(currentAuthMode === 'login' ? 'register' : 'login');
+        }
+
+        function switchAuthMode(mode) {
+            currentAuthMode = mode;
+            const submitBtn = document.getElementById('authSubmitBtn');
+            const toggleText = document.getElementById('authToggleText');
+            const toggleBtn = document.getElementById('authToggleBtn');
+            const topLeftBtn = document.getElementById('topLeftRegisterBtn');
+            const authError = document.getElementById('authError');
+            authError.classList.add('hidden');
+
+            if (mode === 'register') {
+                submitBtn.innerText = 'ثبت نام در حساب';
+                toggleText.innerText = 'حساب کاربری داری؟';
+                toggleBtn.innerText = 'وارد شو';
+                topLeftBtn.classList.add('hidden');
+            } else {
+                submitBtn.innerText = 'ورود به حساب';
+                toggleText.innerText = 'حساب کاربری نداری؟';
+                toggleBtn.innerText = 'ثبت نام کن';
+                topLeftBtn.classList.remove('hidden');
+            }
+        }
+
+        // Show top left register button initially
+        document.getElementById('topLeftRegisterBtn').classList.remove('hidden');
+
+        // Handle Authentication Form Submit
+        async function handleAuth(e) {
+            e.preventDefault();
+            const username = document.getElementById('usernameInput').value.trim();
+            const password = document.getElementById('passwordInput').value.trim();
+            const authError = document.getElementById('authError');
+
+            authError.classList.add('hidden');
+
+            try {
+                const response = await fetch('/api', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: currentAuthMode,
+                        username,
+                        password
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    authError.innerText = data.error || 'خطایی رخ داد.';
+                    authError.classList.remove('hidden');
+                    return;
+                }
+
+                // Auth Success: Move to Operator Selection Section
+                document.getElementById('authSection').classList.add('hidden');
+                document.getElementById('topLeftRegisterBtn').classList.add('hidden');
+                document.getElementById('operatorSection').classList.remove('hidden');
+
+            } catch (err) {
+                authError.innerText = 'خطا در ارتباط با سرور.';
+                authError.classList.remove('hidden');
+            }
+        }
+
+        // Select Operator and Load Products
+        function selectOperator(operator) {
+            selectedOperator = operator;
+            document.getElementById('operatorSection').classList.add('hidden');
+            document.getElementById('mainPageSection').classList.remove('hidden');
+            
+            const title = operator === 'irancell' ? 'بسته‌های اینترنت ایرانسل' : 'بسته‌های اینترنت همراه اول';
+            document.getElementById('selectedOperatorTitle').innerText = title;
+
+            loadPackages(operator);
+        }
+
+        function showOperatorSection() {
+            document.getElementById('mainPageSection').classList.add('hidden');
+            document.getElementById('operatorSection').classList.remove('hidden');
+        }
+
+        // Fetch Packages from Vercel API Proxy
+        async function loadPackages(operator) {
+            const productList = document.getElementById('productList');
+            const loading = document.getElementById('packagesLoading');
+            
+            productList.innerHTML = '';
+            loading.classList.remove('hidden');
+
+            try {
+                const response = await fetch(`/api?action=getPackages&operator=${operator}`);
+                const data = await response.json();
+                loading.classList.add('hidden');
+
+                const packages = data.packages || {};
+                const keys = Object.keys(packages);
+
+                if (keys.length === 0) {
+                    productList.innerHTML = `<div class="text-center text-xs text-gray-400 py-6">هیچ بسته‌ای برای این اپراتور ثبت نشده است.</div>`;
+                    return;
+                }
+
+                keys.forEach(key => {
+                    const item = packages[key];
+                    const cardHtml = `
+                        <div class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <button onclick='openPurchaseModal(${JSON.stringify(item)})' class="bg-[#10b981] hover:bg-[#059669] text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                    <span>خرید</span>
+                                </button>
+                                <div class="text-left">
+                                    <div class="text-xs font-bold text-emerald-400">${Number(item.price).toLocaleString('fa-IR')}</div>
+                                    <div class="text-[10px] text-gray-400">تومان</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2.5">
+                                <div class="text-right">
+                                    <div class="text-sm font-bold text-gray-100">${item.volume}</div>
+                                    <div class="text-[10px] text-gray-400 flex items-center gap-1 justify-end mt-0.5">
+                                        <span>${item.duration}</span>
+                                        <i data-lucide="calendar" class="w-3 h-3"></i>
+                                    </div>
+                                </div>
+                                <div class="w-11 h-11 bg-[#064e3b]/40 border border-[#059669]/30 rounded-lg flex flex-col items-center justify-center text-[#10b981]">
+                                    <span class="text-xs font-bold leading-none">${item.volume.split(' ')[0]}</span>
+                                    <i data-lucide="wifi" class="w-3.5 h-3.5 mt-1"></i>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    productList.innerHTML += cardHtml;
+                });
+
+                lucide.createIcons();
+
+            } catch (err) {
+                loading.classList.add('hidden');
+                productList.innerHTML = `<div class="text-center text-xs text-red-400 py-6">خطا در دریافت اطلاعات بسته‌ها.</div>`;
+            }
+        }
+
+        // Open Purchase Modal
+        function openPurchaseModal(item) {
+            currentSelectedPackage = item;
+            document.getElementById('modalVolume').innerText = item.volume;
+            document.getElementById('modalDuration').innerText = item.duration;
+            document.getElementById('modalPrice').innerText = Number(item.price).toLocaleString('fa-IR') + ' تومان';
+            document.getElementById('modalCardNumber').innerText = item.cardNumber;
+            document.getElementById('modalSellerId').innerText = item.sellerId;
+            
+            document.getElementById('copyAlert').classList.add('hidden');
+            document.getElementById('purchaseModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('purchaseModal').classList.add('hidden');
+        }
+
+        // Copy Card Number to Clipboard
+        function copyCardNumber() {
+            if (!currentSelectedPackage) return;
+            navigator.clipboard.writeText(currentSelectedPackage.cardNumber).then(() => {
+                const copyAlert = document.getElementById('copyAlert');
+                copyAlert.classList.remove('hidden');
+                setTimeout(() => copyAlert.classList.add('hidden'), 2000);
+            });
+        }
+
+        // Confirm Payment Message
+        function confirmPayment() {
+            if (!currentSelectedPackage) return;
+            alert(`لطفاً رسید پرداخت خود را به آیدی پشتیبانی ${currentSelectedPackage.sellerId} ارسال کنید.`);
+            closeModal();
+        }
+
+        // Initialize Lucide Icons
         lucide.createIcons();
     </script>
 </body>
 </html>
+ 
