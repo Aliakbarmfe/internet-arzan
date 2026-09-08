@@ -23,13 +23,10 @@
     <div class="w-full max-w-md min-h-screen flex flex-col justify-start p-4 relative">
 
         <!-- Header -->
-        <header class="flex items-center justify-between py-2 border-b border-gray-800/50 mb-4">
-            <div class="flex flex-col">
-                <span class="font-bold text-base text-gray-100">اینترنت ارزان جکسون</span>
-                <span class="text-[10px] text-gray-400">سرویس سریع خرید بسته</span>
-            </div>
+        <header class="flex items-center justify-center py-3 border-b border-gray-800/50 mb-4 relative">
+            <span class="font-bold text-base text-gray-100 text-center">اینترنت ارزان جکسون</span>
             <!-- Top Left Register Button -->
-            <button id="topLeftRegisterBtn" onclick="switchAuthMode('register')" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs px-3 py-1.5 rounded-lg transition-all hidden">
+            <button id="topLeftRegisterBtn" onclick="switchAuthMode('register')" class="absolute left-0 bg-emerald-600 hover:bg-emerald-500 text-white text-xs px-3 py-1.5 rounded-lg transition-all hidden">
                 ثبت نام
             </button>
         </header>
@@ -98,6 +95,36 @@
 
         <!-- ================= SECTION 3: PRODUCTS MAIN PAGE ================= -->
         <div id="mainPageSection" class="w-full hidden">
+            <!-- Welcome Card -->
+            <div class="bg-[#151d2a] border border-gray-800/60 rounded-2xl p-4 mb-4 text-right">
+                <div class="text-sm font-bold text-emerald-400 mb-1">
+                    به فروشگاه اينترنت جکسون خوش امدید 👋
+                </div>
+                <div class="text-[11px] text-gray-400 mb-3">
+                    در اینجا میتوانید جدید ترین و بروز ترین اینترنت را خریداری کنید.
+                </div>
+                <div class="grid grid-cols-1 gap-2 pt-2 border-t border-gray-800/50 text-xs text-gray-300">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <span>تحویل آنی</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-rose-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                        <span>قیمت مناسب</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-sky-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span>پشتیبانی 24 ساعت</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- Operator Header Bar -->
             <div class="flex items-center justify-between bg-[#151d2a] p-3 rounded-xl border border-gray-800/60 mb-4">
                 <div class="flex items-center gap-2">
@@ -176,6 +203,18 @@
         let selectedOperator = '';
         let currentSelectedPackage = null;
 
+        // Auto Check Session on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn === 'true') {
+                document.getElementById('authSection').classList.add('hidden');
+                document.getElementById('topLeftRegisterBtn').classList.add('hidden');
+                document.getElementById('operatorSection').classList.remove('hidden');
+            } else {
+                document.getElementById('topLeftRegisterBtn').classList.remove('hidden');
+            }
+        });
+
         // Toggle Auth View Mode
         function toggleAuthMode() {
             switchAuthMode(currentAuthMode === 'login' ? 'register' : 'login');
@@ -202,9 +241,6 @@
                 topLeftBtn.classList.remove('hidden');
             }
         }
-
-        // Show top left register button initially
-        document.getElementById('topLeftRegisterBtn').classList.remove('hidden');
 
         // Handle Authentication Form Submit
         async function handleAuth(e) {
@@ -233,6 +269,10 @@
                     authError.classList.remove('hidden');
                     return;
                 }
+
+                // Save auth state to localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('username', username);
 
                 // Auth Success: Move to Operator Selection Section
                 document.getElementById('authSection').classList.add('hidden');
@@ -362,4 +402,3 @@
     </script>
 </body>
 </html>
- 
