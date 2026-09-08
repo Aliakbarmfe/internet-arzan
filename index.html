@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه اینترنت روبیکا</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Vazirmatn Font -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #0d131d;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex justify-center items-start bg-[#0d131d]">
+
+    <!-- Main Container (Mobile View) -->
+    <div class="w-full max-w-md min-h-screen flex flex-col justify-between p-4 pb-20 relative">
+
+        <!-- Header -->
+        <header class="flex items-center justify-between py-2 border-b border-gray-800/50 mb-4">
+            <button class="text-gray-300 hover:text-white">
+                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </button>
+            <div class="flex flex-col items-center">
+                <span class="font-bold text-base text-gray-100">فروشگاه اینترنت روبیکا</span>
+                <span class="text-xs text-gray-400">ربات</span>
+            </div>
+            <button class="text-gray-300 hover:text-white">
+                <i data-lucide="more-vertical" class="w-5 h-5"></i>
+            </button>
+        </header>
+
+        <!-- Welcome Banner -->
+        <section class="bg-[#151d2a] rounded-2xl p-4 text-center mb-5 border border-gray-800/40 shadow-sm">
+            <div class="flex justify-center items-center gap-2 mb-2">
+                <span class="text-sm font-bold text-gray-100">به فروشگاه اینترنت روبیکا خوش آمدید!</span>
+                <span class="text-lg">👋</span>
+            </div>
+            <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                در اینجا می‌توانید جدیدترین و ارزان‌ترین بسته‌های اینترنت همراه را به صورت خودکار خریداری کنید.
+            </p>
+            <!-- Features Badges -->
+            <div class="flex items-center justify-between text-[11px] text-gray-300 pt-2 border-t border-gray-800/60 px-1">
+                <div class="flex items-center gap-1">
+                    <i data-lucide="zap" class="w-3.5 h-3.5 text-emerald-400"></i>
+                    <span>تحویل آنی</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <i data-lucide="check-square" class="w-3.5 h-3.5 text-emerald-400"></i>
+                    <span>قیمت مناسب</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <i data-lucide="headphones" class="w-3.5 h-3.5 text-emerald-400"></i>
+                    <span>پشتیبانی ۲۴/۷</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Title -->
+        <div class="flex items-center justify-center gap-2 text-gray-200 font-semibold mb-4 text-sm">
+            <i data-lucide="globe" class="w-4 h-4 text-gray-400"></i>
+            <span>بسته‌های اینترنت</span>
+        </div>
+
+        <!-- Product List -->
+        <div class="space-y-3 mb-6">
+            
+            <!-- Card 1 -->
+            <div class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-between">
+                <!-- Buy Button & Price -->
+                <div class="flex items-center gap-3">
+                    <button class="bg-[#10b981] hover:bg-[#059669] text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                        <span>خرید</span>
+                    </button>
+                    <div class="text-left">
+                        <div class="text-xs font-bold text-emerald-400">۳۰,۰۰۰</div>
+                        <div class="text-[10px] text-gray-400">تومان</div>
+                    </div>
+                </div>
+                <!-- Package Details -->
+                <div class="flex items-center gap-3">
+                    <div class="text-right">
+                        <div class="text-sm font-bold text-gray-100">۱۰ گیگابایت</div>
+                        <div class="text-[10px] text-gray-400 flex items-center gap-1 justify-end mt-0.5">
+                            <span>۳۰ روزه</span>
+                            <i data-lucide="calendar" class="w-3 h-3"></i>
+                        </div>
+                    </div>
+                    <!-- Icon Badge -->
+                    <div class="w-11 h-11 bg-[#064e3b]/40 border border-[#059669]/30 rounded-lg flex flex-col items-center justify-center text-[#10b981]">
+                        <span class="text-xs font-bold leading-none">1GB</span>
+                        <i data-lucide="wifi" class="w-3.5 h-3.5 mt-1"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <button class="bg-[#10b981] hover:bg-[#059669] text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                        <span>خرید</span>
+                    </button>
+                    <div class="text-left">
+                        <div class="text-xs font-bold text-emerald-400">۵۰,۰۰۰</div>
+                        <div class="text-[10px] text-gray-400">تومان</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="text-right">
+                        <div class="text-sm font-bold text-gray-100">۲۰ گیگابایت</div>
+                        <div class="text-[10px] text-gray-400 flex items-center gap-1 justify-end mt-0.5">
+                            <span>۶۰ روزه</span>
+                            <i data-lucide="calendar" class="w-3 h-3"></i>
+                        </div>
+                    </div>
+                    <div class="w-11 h-11 bg-[#064e3b]/40 border border-[#059669]/30 rounded-lg flex flex-col items-center justify-center text-[#10b981]">
+                        <span class="text-xs font-bold leading-none">2GB</span>
+                        <i data-lucide="wifi" class="w-3.5 h-3.5 mt-1"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <button class="bg-[#10b981] hover:bg-[#059669] text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                        <span>خرید</span>
+                    </button>
+                    <div class="text-left">
+                        <div class="text-xs font-bold text-emerald-400">۷۵,۰۰۰</div>
+                        <div class="text-[10px] text-gray-400">تومان</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="text-right">
+                        <div class="text-sm font-bold text-gray-100">۳۰ گیگابایت</div>
+                        <div class="text-[10px] text-gray-400 flex items-center gap-1 justify-end mt-0.5">
+                            <span>۹۰ روزه</span>
+                            <i data-lucide="calendar" class="w-3 h-3"></i>
+                        </div>
+                    </div>
+                    <div class="w-11 h-11 bg-[#064e3b]/40 border border-[#059669]/30 rounded-lg flex flex-col items-center justify-center text-[#10b981]">
+                        <span class="text-xs font-bold leading-none">3GB</span>
+                        <i data-lucide="wifi" class="w-3.5 h-3.5 mt-1"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <button class="bg-[#10b981] hover:bg-[#059669] text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                        <span>خرید</span>
+                    </button>
+                    <div class="text-left">
+                        <div class="text-xs font-bold text-emerald-400">۱۱۰,۰۰۰</div>
+                        <div class="text-[10px] text-gray-400">تومان</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="text-right">
+                        <div class="text-sm font-bold text-gray-100">۵۰ گیگابایت</div>
+                        <div class="text-[10px] text-gray-400 flex items-center gap-1 justify-end mt-0.5">
+                            <span>۱۲۰ روزه</span>
+                            <i data-lucide="calendar" class="w-3 h-3"></i>
+                        </div>
+                    </div>
+                    <div class="w-11 h-11 bg-[#064e3b]/40 border border-[#059669]/30 rounded-lg flex flex-col items-center justify-center text-[#10b981]">
+                        <span class="text-xs font-bold leading-none">5GB</span>
+                        <i data-lucide="wifi" class="w-3.5 h-3.5 mt-1"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <button class="bg-[#10b981] hover:bg-[#059669] text-white text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+                        <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                        <span>خرید</span>
+                    </button>
+                    <div class="text-left">
+                        <div class="text-xs font-bold text-emerald-400">۱۵۰,۰۰۰</div>
+                        <div class="text-[10px] text-gray-400">تومان</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="text-right">
+                        <div class="text-sm font-bold text-gray-100">۱۰۰ گیگابایت</div>
+                        <div class="text-[10px] text-gray-400 flex items-center gap-1 justify-end mt-0.5">
+                            <span>۱۸۰ روزه</span>
+                            <i data-lucide="calendar" class="w-3 h-3"></i>
+                        </div>
+                    </div>
+                    <div class="w-11 h-11 bg-[#064e3b]/40 border border-[#059669]/30 rounded-lg flex flex-col items-center justify-center text-[#10b981]">
+                        <span class="text-xs font-bold leading-none">10GB</span>
+                        <i data-lucide="wifi" class="w-3.5 h-3.5 mt-1"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Grid Buttons -->
+        <div class="grid grid-cols-2 gap-3 mb-4">
+            <button class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-center gap-2 text-xs text-gray-200 hover:bg-[#1e293b]">
+                <i data-lucide="help-circle" class="w-4 h-4 text-gray-400"></i>
+                <span>سوالات متداول</span>
+            </button>
+            <button class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-center gap-2 text-xs text-gray-200 hover:bg-[#1e293b]">
+                <i data-lucide="book-open" class="w-4 h-4 text-gray-400"></i>
+                <span>راهنمای خرید</span>
+            </button>
+            <button class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-center gap-2 text-xs text-gray-200 hover:bg-[#1e293b]">
+                <i data-lucide="headphones" class="w-4 h-4 text-gray-400"></i>
+                <span>پشتیبانی</span>
+            </button>
+            <button class="bg-[#151d2a] border border-gray-800/60 rounded-xl p-3 flex items-center justify-center gap-2 text-xs text-gray-200 hover:bg-[#1e293b]">
+                <i data-lucide="info" class="w-4 h-4 text-gray-400"></i>
+                <span>درباره ما</span>
+            </button>
+        </div>
+
+        <!-- Chat Input Bar -->
+        <div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-[#0d131d] p-3 flex items-center gap-2 border-t border-gray-800/50">
+            <button class="bg-[#0284c7] hover:bg-[#0369a1] text-white px-3 py-2 rounded-xl flex items-center gap-1.5 text-xs">
+                <i data-lucide="menu" class="w-4 h-4"></i>
+                <span>منو</span>
+            </button>
+            <button class="text-gray-400 p-1 hover:text-white">
+                <i data-lucide="paperclip" class="w-5 h-5"></i>
+            </button>
+            <input type="text" placeholder="پیام خود را بنویسید..." class="bg-transparent text-xs text-white placeholder-gray-500 w-full focus:outline-none text-right px-2">
+            <button class="text-gray-400 p-1 hover:text-white">
+                <i data-lucide="grid" class="w-5 h-5"></i>
+            </button>
+            <button class="text-gray-400 p-1 hover:text-white">
+                <i data-lucide="mic" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
