@@ -20,7 +20,7 @@
 <body class="text-white min-h-screen flex justify-center items-start bg-[#0d131d]">
 
     <!-- Main Container -->
-    <div class="w-full max-w-md min-h-screen flex flex-col justify-start p-4 relative">
+    <div class="w-full max-w-md min-h-screen flex flex-col justify-start p-4 pb-20 relative">
 
         <!-- Header -->
         <header class="flex items-center justify-center py-3 border-b border-gray-800/50 mb-4 relative">
@@ -146,6 +146,50 @@
             <div id="productList" class="space-y-2.5 mb-6"></div>
         </div>
 
+        <!-- ================= BOTTOM FIXED BUTTON (SAKHT SITE) ================= -->
+        <div class="fixed bottom-3 left-0 right-0 flex justify-center z-40 px-4">
+            <button onclick="toggleWebsiteDrawer(true)" class="bg-[#151d2a]/95 backdrop-blur-md border border-emerald-500/40 hover:border-emerald-500 text-white text-xs px-4 py-2 rounded-full flex items-center gap-1.5 shadow-lg transition-all">
+                <span>ساخت سایت</span>
+                <i data-lucide="chevron-up" class="w-3.5 h-3.5 text-emerald-400 animate-bounce"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- ================= SLIDE-UP DRAWER (SAKHT SITE) ================= -->
+    <div id="websiteDrawerOverlay" onclick="toggleWebsiteDrawer(false)" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="websiteDrawer" class="fixed bottom-0 left-0 right-0 bg-[#151d2a] border-t border-gray-800 rounded-t-3xl p-5 z-50 transform translate-y-full transition-transform duration-300 ease-in-out max-w-md mx-auto text-right">
+        <!-- Close & Handle Indicator -->
+        <div class="w-12 h-1 bg-gray-700 rounded-full mx-auto mb-4 cursor-pointer" onclick="toggleWebsiteDrawer(false)"></div>
+        <button onclick="toggleWebsiteDrawer(false)" class="absolute left-4 top-4 text-gray-400 hover:text-white">
+            <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Drawer Content -->
+        <div class="space-y-4">
+            <h3 class="text-sm font-bold text-emerald-400 text-center">تو هم میخوای سایت خودت رو داشته باشی؟</h3>
+            
+            <div class="bg-[#0d131d] p-3 rounded-xl border border-gray-800/60 text-xs text-gray-300 text-center space-y-1">
+                <div>به ایدی زیر در روبیکا پیام بده:</div>
+                <div class="font-bold text-emerald-400 dir-ltr text-sm select-all">@Cod_Fizon</div>
+            </div>
+
+            <ul class="text-xs text-gray-300 space-y-2 bg-[#0d131d]/50 p-3 rounded-xl border border-gray-800/40">
+                <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i>
+                    <span>ساخت هر نوع سایت با سبک و رنگ و طرح دلخواه شما</span>
+                </li>
+                <li class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i>
+                    <span>دارای پنل مدیریت برای ویرایش، حذف و اضافه کردن بخش های جدید برای هر سایت</span>
+                </li>
+            </ul>
+
+            <a href="https://Fizon.vercel.app" target="_blank" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-2.5 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/20">
+                <span>سایت ما (کلیک کن)</span>
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+        </div>
     </div>
 
     <!-- ================= PURCHASE MODAL ================= -->
@@ -214,6 +258,19 @@
                 document.getElementById('topLeftRegisterBtn').classList.remove('hidden');
             }
         });
+
+        // Toggle Drawer Function
+        function toggleWebsiteDrawer(open) {
+            const drawer = document.getElementById('websiteDrawer');
+            const overlay = document.getElementById('websiteDrawerOverlay');
+            if (open) {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                drawer.classList.remove('translate-y-full');
+            } else {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                drawer.classList.add('translate-y-full');
+            }
+        }
 
         // Toggle Auth View Mode
         function toggleAuthMode() {
